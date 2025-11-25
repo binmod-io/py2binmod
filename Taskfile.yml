@@ -1,0 +1,17 @@
+version: '3'
+
+silent: true
+
+includes:
+  devtools:
+    taskfile: .taskfile/devtools.yml
+  version:
+    taskfile: .taskfile/version.yml
+  rust:
+    taskfile: .taskfile/rust.yml
+  python:
+    taskfile: .taskfile/python.yml
+  docker:
+    taskfile: .taskfile/docker.yml
+  utils:
+    taskfile: .taskfile/utils.yml

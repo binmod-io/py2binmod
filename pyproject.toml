@@ -1,0 +1,75 @@
+[project]
+name = "py2binmod"
+version = "0.0.0"
+description = "CLI tool to compile Python packages into Binmod modules"
+readme = "README.md"
+authors = [
+    {name = "Tim Pogue", email = "me@pogue.dev"},
+]
+license = {text = "ISC"}
+requires-python = "<4.0,>=3.10"
+dependencies = [
+    "rich>=14.2.0",
+    "typer>=0.20.0",
+    "uvloop>=0.22.1",
+]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[project.urls]
+repository = "https://github.com/binmod-io/py2binmod"
+
+[project.scripts]
+py2binmod = "py2binmod.cli:cli"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.2.0",
+    "ruff>=0.8.0",
+    "pytest>=9.0.1",
+    "coverage>=7.6.8",
+    "pre-commit>=4.0.1",
+    "maturin>=1.7.8",
+]
+
+[package.metadata.maturin]
+name = "py2binmod"
+
+[build-system]
+requires = ["maturin>=1.10,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "py2binmod._py2binmod"
+
+[tool.mypy]
+plugins = "pydantic.mypy"
+ignore_missing_imports = "True"
+
+[tool.pytest.ini_options]
+addopts = "-s -p no:warnings"
+testpaths = [
+    "tests",
+]
+asyncio_mode = "auto"
+log_cli = "True"
+log_auto_indent = "False"
+
+[tool.ruff]
+line-length = 100
+exclude = ["tests", "examples"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "C", "B", "UP", "NPY201"]
+ignore = ["B008", "B904", "UP045", "UP007", "UP047"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2

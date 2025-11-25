@@ -1,0 +1,19 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the Docker image
+    vars:
+      IMAGE_NAME: '{{ .IMAGE_NAME | default "ghcr.io/binmod-io/py2binmod" }}'
+      IMAGE_TAG: '{{ .IMAGE_TAG | default "local" }}'
+      DOCKER_BUILD_ARGS: '{{ .DOCKER_BUILD_ARGS | default "" }}'
+      PYTHON_VERSION: '{{ .PYTHON_VERSION | default "3.12" }}'
+      RUST_VERSION: '{{ .RUST_VERSION | default "1.91" }}'
+    cmds:
+      - |
+        docker build \
+          --build-arg RUST_VERSION="{{.RUST_VERSION}}" \
+          --build-arg PYTHON_VERSION="{{.PYTHON_VERSION}}" \
+          -f build/docker/Dockerfile {{.DOCKER_BUILD_ARGS}} \
+          -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} \
+          .
