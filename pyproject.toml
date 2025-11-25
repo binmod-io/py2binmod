@@ -1,6 +1,6 @@
 [project]
 name = "py2binmod"
-version = "0.0.0"
+version = "0.1.0"
 description = "CLI tool to compile Python packages into Binmod modules"
 readme = "README.md"
 authors = [

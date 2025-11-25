@@ -1,6 +1,6 @@
 [package]
 name = "py2binmod"
-version = "0.0.0"
+version = "0.1.0"
 edition = "2024"
 description = "Binmod web-assembly module compiler for Python"
 repository = "https://gitlab.com/binmod/py2binmod"
