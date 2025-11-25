@@ -2,7 +2,7 @@ style: gitlab
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  repository_url: https://gitlab.com/binmod/py2binmod
+  repository_url: https://github.com/binmod-io/py2binmod
 options:
   commits:
     # filters:
