@@ -265,7 +265,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           merge-multiple: true
-          path: artifacts
+          path: dist
 
       - name: Extract changelog for release
         id: changelog
@@ -297,7 +297,8 @@ jobs:
           tag_name: ${{ github.ref_name }}
           body_path: release_notes.md
           files: |
-            artifacts/**/*.tar.gz
-            artifacts/**/*.zip
+            dist/**/*.tar.gz
+            dist/**/*.zip
+            dist/**/*.whl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

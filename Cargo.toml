@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "Binmod web-assembly module compiler for Python"
 repository = "https://github.com/binmod-io/py2binmod"
-license = "ISC"
+license = "MIT"
 readme = "README.md"
 
 [lib]
